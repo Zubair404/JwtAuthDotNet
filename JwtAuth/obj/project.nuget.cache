@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9NhvnpVMDo0=",
+  "dgSpecHash": "5Iw+EdGyWMw=",
   "success": true,
-  "projectFilePath": "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuthDotNet/JwtAuthDotNet.csproj",
+  "projectFilePath": "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuth/JwtAuth.csproj",
   "expectedPackageFiles": [
     "/Users/asd/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0/microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
     "/Users/asd/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"

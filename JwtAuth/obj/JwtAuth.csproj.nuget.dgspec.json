@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuthDotNet/JwtAuthDotNet.csproj": {}
+    "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuth/JwtAuth.csproj": {}
   },
   "projects": {
-    "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuthDotNet/JwtAuthDotNet.csproj": {
+    "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuth/JwtAuth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuthDotNet/JwtAuthDotNet.csproj",
-        "projectName": "JwtAuthDotNet",
-        "projectPath": "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuthDotNet/JwtAuthDotNet.csproj",
+        "projectUniqueName": "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuth/JwtAuth.csproj",
+        "projectName": "JwtAuth",
+        "projectPath": "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuth/JwtAuth.csproj",
         "packagesPath": "/Users/asd/.nuget/packages/",
-        "outputPath": "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuthDotNet/obj/",
+        "outputPath": "/Users/asd/Desktop/Github Projects/Web_Learning/JwtAuthDotNet/JwtAuth/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/asd/.nuget/NuGet/NuGet.Config"
