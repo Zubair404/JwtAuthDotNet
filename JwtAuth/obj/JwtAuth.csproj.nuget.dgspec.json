@@ -48,6 +48,14 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[10.0.0, )"
+            },
+            "Scalar.AspNetCore": {
+              "target": "Package",
+              "version": "[2.11.10, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.15.0, )"
             }
           },
           "imports": [
