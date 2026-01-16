@@ -30,7 +30,7 @@ namespace JwtAuth.Services
             return user;
         }
 
-        public async Task<string?> LoginAsync(UserDto request)
+        public async Task<TokenResponseDto?> LoginAsync(UserDto request)
         {
             var user = await context.Users.FirstOrDefaultAsync(u => u.username == request.username);
             if (user == null)
@@ -41,14 +41,20 @@ namespace JwtAuth.Services
             {
                 return null;
             }
-            return CreateToken(user);
+            var response = new TokenResponseDto
+            {
+                AccessToken = CreateToken(user),
+                RefreshToken = await SetSaveRefreshToken(user)
+            };
+            return response;
         }
         public string CreateToken(User user)
         {
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.username),
-                new Claim(ClaimTypes.NameIdentifier, user.id.ToString())
+                new Claim(ClaimTypes.NameIdentifier, user.id.ToString()),
+                new Claim(ClaimTypes.Role, user.role)
             };
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(configuration.GetValue<string>("AppSettings:Token")!));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
@@ -62,6 +68,23 @@ namespace JwtAuth.Services
                 signingCredentials: creds
             );
             return new JwtSecurityTokenHandler().WriteToken(tokendescriptor);
+        }
+        private string GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using(var rng = System.Security.Cryptography.RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+            }
+            return Convert.ToBase64String(randomNumber);
+        }
+        private async Task<string> SetSaveRefreshToken(User user)
+        {
+            var refreshToken = GenerateRefreshToken();
+            user.refreshToken = refreshToken;
+            user.refreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+            await context.SaveChangesAsync();
+            return refreshToken;
         }
     }
 }

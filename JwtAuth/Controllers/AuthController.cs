@@ -30,7 +30,7 @@ namespace JwtAuth.Controllers
             return Ok(user);
         }
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login(UserDto request)
+        public async Task<ActionResult<TokenResponseDto>> Login(UserDto request)
         {
             var token = await authService.LoginAsync(request);
             if(token is null)
@@ -42,6 +42,12 @@ namespace JwtAuth.Controllers
         public IActionResult AuthenticatedOnlyEndPoint()
         {
             return Ok("You are authenticated!");
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpGet("admin-only")]
+        public IActionResult AdminOnlyEndPoint()
+        {
+            return Ok("You are authenticated as an Admin!");
         }
     }
 }
